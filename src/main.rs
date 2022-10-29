@@ -68,7 +68,7 @@ fn initialize(params: InitializeParams) -> Result<()> {
     }
   }
 
-  let server_uri = ok!(Url::parse("urn:@kozer/emmet-language-server"));
+  let server_uri = ok!(Url::parse("urn:emmet-language-server"));
 
   PLUGIN_RPC.start_lsp(
     server_uri,

@@ -1,0 +1,17 @@
+name = "lapce-emmet"
+version = "0.0.1"
+author = "CroxxN"
+display-name = "Emmet"
+description = "Emmet for HTML and CSS completion"
+wasm = "bin/lapce-emmet.wasm"
+
+[activation]
+language = ["html","css", "js","ts", "jsx", "tsx"]
+workspace-contains = [
+  "*/*.html",
+  "*/*.css",
+  "*/*.js",
+  "*/*.jsx",
+  "*/*.tsx",
+  "*/*.ts"
+]
