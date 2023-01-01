@@ -4,10 +4,12 @@ author = "CroxxN"
 display-name = "HTML"
 description = "HTML lsp for Lapce"
 wasm = "bin/lapce-html.wasm"
+repository = "https://github.com/CroxxN/lapce-html"
+icon = "html5-original.svg"
 
 [activation]
-language = ["html","html"]
-workspace-contains = [ "*/*.html", "*/*.htm"]
+language = ["html"]
+workspace-contains = [ "*/*.html", "*/*.htm", "package.json"]
 
 [config."volt.serverPath"]
 default = ""
