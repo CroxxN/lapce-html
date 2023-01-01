@@ -1,0 +1,21 @@
+[package]
+edition = "2021"
+name = "lapce-html"
+version = "0.1.0"
+resolver = "2"
+authors = ["CroxxN <saradgaihre19@gmail.com>"]
+
+[target.'cfg(target_os = "wasi")'.dependencies]
+
+# default deps for all lapce plugins
+anyhow = "1.0"
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+lapce-plugin = { git = "https://github.com/lapce/lapce-plugin-rust.git" }
+
+[profile.release]
+lto = true
+opt-level = 's'
+codegen-units = 1
+strip = true
+panic = 'abort'

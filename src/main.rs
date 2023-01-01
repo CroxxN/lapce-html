@@ -4,7 +4,7 @@ use lapce_plugin::{
     lsp_types::{request::Initialize, DocumentFilter, DocumentSelector, InitializeParams, Url},
     Request,
   },
-  register_plugin, LapcePlugin, PLUGIN_RPC,
+  register_plugin, LapcePlugin, VoltEnvironment, PLUGIN_RPC,
 };
 use serde_json::Value;
 
@@ -31,7 +31,7 @@ macro_rules! ok {
 fn initialize(params: InitializeParams) -> Result<()> {
   let document_selector: DocumentSelector = vec![DocumentFilter {
     language: Some(string!("html")),
-    pattern: Some(string!("**/*.{html,htm,js,ts,css,jsx,tsx}")),
+    pattern: Some(string!("**/*.{html,htm}")),
     scheme: None,
   }];
   let mut server_args = vec![string!("--stdio")];
@@ -68,7 +68,10 @@ fn initialize(params: InitializeParams) -> Result<()> {
     }
   }
 
-  let server_uri = ok!(Url::parse("urn:emmet-language-server"));
+  let server_uri = match VoltEnvironment::operating_system().as_deref() {
+    | Ok("windows") => ok!(Url::parse("urn:html-languageserver.cmd")),
+    | _ => ok!(Url::parse("urn:html-languageserver")),
+  };
 
   PLUGIN_RPC.start_lsp(
     server_uri,
@@ -86,7 +89,9 @@ impl LapcePlugin for State {
     match method.as_str() {
       | Initialize::METHOD => {
         let params: InitializeParams = serde_json::from_value(params).unwrap();
-        let _ = initialize(params);
+        if let Err(e) = initialize(params) {
+          PLUGIN_RPC.stderr(&format!("plugin returned with error: {e}"))
+        }
       }
       | _ => {}
     }

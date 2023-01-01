@@ -1,17 +1,18 @@
-name = "lapce-emmet"
+name = "lapce-html"
 version = "0.0.1"
 author = "CroxxN"
-display-name = "Emmet"
-description = "Emmet for HTML and CSS completion"
-wasm = "bin/lapce-emmet.wasm"
+display-name = "HTML"
+description = "HTML lsp for Lapce"
+wasm = "bin/lapce-html.wasm"
 
 [activation]
-language = ["html","css", "js","ts", "jsx", "tsx"]
-workspace-contains = [
-  "*/*.html",
-  "*/*.css",
-  "*/*.js",
-  "*/*.jsx",
-  "*/*.tsx",
-  "*/*.ts"
-]
+language = ["html","html"]
+workspace-contains = [ "*/*.html", "*/*.htm"]
+
+[config."volt.serverPath"]
+default = ""
+description = "Path to html-language-server"
+
+[config."volt.serverArgs"]
+default = ["--stdio"]
+description = "LSP server arguments to pass when launching"
