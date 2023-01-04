@@ -29,11 +29,34 @@ macro_rules! ok {
 }
 
 fn initialize(params: InitializeParams) -> Result<()> {
-  let document_selector: DocumentSelector = vec![DocumentFilter {
-    language: Some(string!("html")),
-    pattern: Some(string!("**/*.html")),
+  let document_selector: DocumentSelector = vec![
+    DocumentFilter {
+    language: Some(string!("HTML")),
+    pattern: Some(string!("**/*.{html,htm}")),
     scheme: None,
-  }];
+    },
+    DocumentFilter {
+    language: Some(string!("javascript")),
+    pattern: Some(string!("**/*.js")),
+    scheme: None,
+    },
+    DocumentFilter {
+    language: Some(string!("typescript")),
+    pattern: Some(string!("**/*.ts")),
+    scheme: None,
+    },
+    DocumentFilter {
+    language: Some(string!("JSX")),
+    pattern: Some(string!("**/*.jsx")),
+    scheme: None,
+    },
+    DocumentFilter {
+    language: Some(string!("TSX")),
+    pattern: Some(string!("**/*.tsx")),
+    scheme: None,
+    },
+    
+  ];
   let mut server_args = vec![string!("--stdio")];
 
   if let Some(options) = params.initialization_options.as_ref() {

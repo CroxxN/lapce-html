@@ -1,5 +1,5 @@
 name = "lapce-html"
-version = "0.0.1"
+version = "0.0.2"
 author = "CroxxN"
 display-name = "HTML"
 description = "HTML lsp for Lapce"
@@ -9,7 +9,7 @@ icon = "html5-original.svg"
 
 [activation]
 language = ["html"]
-workspace-contains = [ "*/*.html", "*/*.htm", "package.json"]
+workspace-contains = [ "*/*.html", "*/*.htm", "package.json", "*.jsx", ".tsx", ".js", ".ts"]
 
 [config."volt.serverPath"]
 default = ""
