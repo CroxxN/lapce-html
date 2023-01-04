@@ -32,7 +32,7 @@ fn initialize(params: InitializeParams) -> Result<()> {
   let document_selector: DocumentSelector = vec![
     DocumentFilter {
     language: Some(string!("HTML")),
-    pattern: Some(string!("**/*.{html,htm}")),
+    pattern: Some(string!("**/*.html")),
     scheme: None,
     },
     DocumentFilter {
