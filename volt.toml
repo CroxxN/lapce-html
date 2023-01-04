@@ -9,7 +9,7 @@ icon = "html5-original.svg"
 
 [activation]
 language = ["html"]
-workspace-contains = [ "*/*.html", "*/*.htm", "package.json", "*.jsx", ".tsx", ".js", ".ts"]
+workspace-contains = [ "*/*.html", "*/*.htm", "package.json", "*/*.jsx", "*/*.tsx", "*/*.js", "*/*.ts"]
 
 [config."volt.serverPath"]
 default = ""
