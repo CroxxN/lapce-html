@@ -1,5 +1,5 @@
 name = "lapce-html"
-version = "0.0.2"
+version = "0.0.3"
 author = "CroxxN"
 display-name = "HTML"
 description = "HTML lsp for Lapce"

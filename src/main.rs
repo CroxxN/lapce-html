@@ -35,27 +35,6 @@ fn initialize(params: InitializeParams) -> Result<()> {
     pattern: Some(string!("**/*.html")),
     scheme: None,
     },
-    DocumentFilter {
-    language: Some(string!("javascript")),
-    pattern: Some(string!("**/*.js")),
-    scheme: None,
-    },
-    DocumentFilter {
-    language: Some(string!("typescript")),
-    pattern: Some(string!("**/*.ts")),
-    scheme: None,
-    },
-    DocumentFilter {
-    language: Some(string!("JSX")),
-    pattern: Some(string!("**/*.jsx")),
-    scheme: None,
-    },
-    DocumentFilter {
-    language: Some(string!("TSX")),
-    pattern: Some(string!("**/*.tsx")),
-    scheme: None,
-    },
-    
   ];
   let mut server_args = vec![string!("--stdio")];
 
@@ -92,8 +71,8 @@ fn initialize(params: InitializeParams) -> Result<()> {
   }
 
   let server_uri = match VoltEnvironment::operating_system().as_deref() {
-    | Ok("windows") => ok!(Url::parse("urn:html-languageserver.cmd")),
-    | _ => ok!(Url::parse("urn:html-languageserver")),
+    | Ok("windows") => ok!(Url::parse("urn:vscode-html-language-server.cmd")),
+    | _ => ok!(Url::parse("urn:vscode-html-langauge-server")),
   };
 
   PLUGIN_RPC.start_lsp(

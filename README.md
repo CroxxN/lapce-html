@@ -1,11 +1,19 @@
 # HTML LSP for Lapce
 
-## Uses `vscode-html-languageserver` as Language server
+
+## Uses `vscode-langservers-extracted` as Language server
 ---
 
 
 ## Requirements
 
-- vscode-html-languageserver should be installed globally. Install it with
+- vscode-langservers-extracted should be installed globally. Install it with
+    `npm i -g vscode-langservers-extracted`
 
-`npm install --global vscode-html-languageserver-bin`
+<br>
+
+
+# V. 0.0.3 Change logs:
+
+
+### Used to use `vscode-html-languagesever`, but it hadn't been update for ~4 years so a switch was made.
